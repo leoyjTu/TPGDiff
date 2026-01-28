@@ -1,15 +1,30 @@
-# TPGDiff
+# TPGDiff: Hierarchical Triple-Prior Guided Diffusion for Image Restoration
 
-TPGDiff is a project for modeling degradation and performing image restoration via a two-stage training pipeline. This README describes environment setup, dependency installation, data generation, training stages, and testing commands.
+---
 
-## Prerequisites
 
-- Python 3.8
-- Conda (recommended) or compatible virtual environment manager
-- CUDA-enabled GPU and matching PyTorch build (if using GPU)
-- Bash (for some provided shell scripts). On Windows, use WSL or adapt commands for PowerShell.
+## 🔥 Update Log
+- [2026/01] 📢 📢 [TPGDiff] code are released.
 
-## Create environment
+
+## 📖 Method Overview
+Overall architecture of TPGDiff. The framework explicitly models three types of priors from a low-quality input image and integrates them into a diffusion-based restoration network: (a) a semantic extractor that learns semantic representations via teacher–student distillation, (b) a degradation extractor that captures degradation-related characteristics, and (c) a structural adapter that injects structural priors into the diffusion model through a adapter module.
+
+<p align="center">
+  <img src="figs/overview.png" width="900">
+</p>
+
+---
+
+## 🛠️ Prerequisites
+
+- Python 3.8  
+- Conda (recommended) or compatible virtual environment manager  
+- Bash (for some provided shell scripts). On Windows, use WSL or adapt commands for PowerShell  
+
+---
+
+## 🌍 Create Environment
 
 Create and activate the Conda environment named `tpgd` with Python 3.8:
 
@@ -18,18 +33,33 @@ conda create -n tpgd python=3.8 -y
 conda activate tpgd
 ```
 
-## Install dependencies
-
 Install Python dependencies from `requirements.txt`:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+## ⬇️ Dataset Preparation
 
-## Usage
+Prepare the train and test datasets following the **Datasets** section in our paper.
 
-### 1) Generate data
+Place training data under `datasets/train/` with the following structure (each degradation has paired `LQ/` and `GT/`):
+
+```text
+datasets/train/
+├── low-light/
+│   ├── LQ/   (*.png)
+│   └── GT/   (*.png)
+├── rainy/
+├── noisy/
+├── hazy/
+└── blurry/
+```
+
+
+## 🚀 Getting Started
+
+### Generate data 🗄️
 
 Generate the dataset text files used by the first-stage training loader. From the project root:
 
@@ -40,11 +70,7 @@ python generate_data.py
 
 The script produces `.txt` lists or dataset artifacts in the configured output folder. Inspect `scripts/generate_data.py` to point outputs to your dataset locations or to change split ratios.
 
-## Training
-
-### Stage 1
-
-### 2) training
+### Training 🤯
 
 Run the first-stage training. From the project root:
 
@@ -69,7 +95,7 @@ Notes:
 - `-opt=options/train.yml` points to the YAML config for training; edit it to set dataset paths, model checkpoints, and training hyperparameters.
 - Newer PyTorch versions recommend `torchrun` as an alternative to `torch.distributed.launch`.
 
-### 4) Testing
+### Testing 📜
 
 After training, run evaluation or inference with the test configuration:
 
@@ -77,9 +103,43 @@ After training, run evaluation or inference with the test configuration:
 python test.py -opt=options/test.yml
 ```
 
-The test configuration specifies dataset paths, model checkpoint locations, output directories, and evaluation metrics.
 
-## Troubleshooting
+## 🏃🏼 Qualitative Results
+
+<details>
+<summary><strong>Click to view qualitative comparison results</strong></summary>
+<br>
+<p align="center">
+  <img src="figs/results-1.png" width="900">
+</p>
+</details>
+
+
+## 🏃🏼 Quantitative Results
+
+<details>
+<summary><strong>Single-task restoration</strong></summary>
+<br>
+<p align="center">
+  <img src="figs/single-task.png" width="700">
+</p>
+</details>
+<details>
+<summary><strong>Multi-degradation (5D) restoration</strong></summary>
+<br>
+<p align="center">
+  <img src="figs/5d-task.png" width="700">
+</p>
+</details>
+<details>
+<summary><strong>Unknown degradation setting</strong></summary>
+<br>
+<p align="center">
+  <img src="figs/unknow.png" width="700">
+</p>
+</details>
+
+## 📏 Troubleshooting
 
 - CUDA / PyTorch mismatch: Verify installed `torch` wheel matches your CUDA toolkit version. Reinstall `torch` if necessary.
 - Distributed errors: Ensure network ports are free and environment variables (`MASTER_ADDR`, `MASTER_PORT`) are set correctly if using multi-node setups.
@@ -87,6 +147,21 @@ The test configuration specifies dataset paths, model checkpoint locations, outp
 - Windows users: Some shell scripts use `bash`; run them under WSL or convert commands for PowerShell.
 
 
-## License & Citation
+## 💖 Acknowledgment
+
+This work is built upon several excellent open-source projects in the image restoration and diffusion modeling community. In particular, we thank the authors of [DA-CLIP](https://github.com/Algolzw/daclip-uir), [IR-SDE](https://github.com/Algolzw/image-restoration-sde), and [open_clip](https://github.com/mlfoundations/open_clip) for releasing their high-quality code and models, which greatly facilitate our research.
 
 
+## 🤝🏼 Citation
+
+If this code contributes to your research, please cite our work:
+
+```bibtex
+@article{TPGDiff,
+  title   = {TPGDiff: Hierarchical Triple-Prior Guided Diffusion for Image Restoration},
+  author  = {Yanjie Tu, Qingsen Yan, Axi Niu, Jiacong Tang},
+  journal = {Under Review},
+  year    = {2026},
+  note    = {Under review}
+}
+```
