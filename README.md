@@ -104,7 +104,7 @@ python test.py -opt=options/test.yml
 ```
 
 
-## 🏃🏼 Qualitative Results
+## ✨ Qualitative Results
 
 <details>
 <summary><strong>Click to view qualitative comparison results</strong></summary>
@@ -115,7 +115,7 @@ python test.py -opt=options/test.yml
 </details>
 
 
-## 🏃🏼 Quantitative Results
+## ✨ Quantitative Results
 
 <details>
 <summary><strong>Single-task restoration</strong></summary>
@@ -149,7 +149,7 @@ python test.py -opt=options/test.yml
 
 ## 💖 Acknowledgment
 
-This work is built upon several excellent open-source projects in the image restoration and diffusion modeling community. In particular, we thank the authors of [DA-CLIP](https://github.com/Algolzw/daclip-uir), [IR-SDE](https://github.com/Algolzw/image-restoration-sde), and [open_clip](https://github.com/mlfoundations/open_clip) for releasing their high-quality code and models, which greatly facilitate our research.
+This project is based on [DA-CLIP](https://github.com/Algolzw/daclip-uir), [IR-SDE](https://github.com/Algolzw/image-restoration-sde), and [open_clip](https://github.com/mlfoundations/open_clip). Thanks for their awesome works.
 
 
 ## 🤝🏼 Citation
@@ -165,3 +165,6 @@ If this code contributes to your research, please cite our work:
   note    = {Under review}
 }
 ```
+
+## 🔆 contact
+If you have any questions, please feel free to contact with me at yanjietu@mail.nwpu.edu.cn
