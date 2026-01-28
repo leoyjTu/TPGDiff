@@ -1,0 +1,37 @@
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Checkpoints and models
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.pytest_cache/

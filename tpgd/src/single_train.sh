@@ -1,0 +1,18 @@
+python -m training.main \
+    --prior-stage \
+    --num-degradations 5 \
+    --label-smoothing 0.01 \
+    --save-frequency 1 \
+    --report-to tensorboard \
+    --train-data="/datasets/priors_train.csv" \
+    --val-data="/datasets/priors_val.csv" \
+    --csv-separator "\t" \
+    --warmup 200 \
+    --batch-size=512 \
+    --lr=2e-5 \
+    --wd=0.05 \
+    --epochs=30 \
+    --workers=8 \
+    --model ViT-B-32 \
+    --name "priors_ViT-B-32_lr2e-5_e30" \
+    --pretrained "laion2b_s34b_b79k"

@@ -1,0 +1,80 @@
+name: universal-ir
+suffix: ~  # add suffix to saved images
+model: denoising
+distortion: ['blurry', 'hazy', 'low-light', 'noisy', 'rainy']
+gpu_ids: [0]
+
+sde:
+  max_sigma: 50
+  T: 100
+  schedule: cosine # linear, cosine
+  eps: 0.005
+  sampling_mode: posterior # sde or posterior
+  
+degradation:
+  # for denoising
+  sigma: 25
+  noise_type: G # Gaussian noise: G
+
+  # for super-resolution
+  scale: 4
+
+datasets:
+  test1:
+   name: Test
+   mode: LQGT
+   dataroot_GT: /datasets/val/blurry/GT
+   dataroot_LQ: /datasets/val/blurry/LQ
+
+  test2:
+   name: Test
+   mode: LQGT
+   dataroot_GT: /datasets/val/hazy/GT
+   dataroot_LQ: /datasets/val/hazy/LQ
+
+  test3:
+   name: Test
+   mode: LQGT
+   dataroot_GT: /datasets/val/low-light/GT
+   dataroot_LQ: /datasets/val/low-light/LQ
+
+  test4:
+   name: Test
+   mode: LQGT
+   dataroot_GT: /datasets/val/noisy/GT
+   dataroot_LQ: /datasets/val/noisy/LQ
+
+  test5:
+   name: Test
+   mode: LQGT
+   dataroot_GT: /datasets/val/rainy/GT
+   dataroot_LQ: /datasets/val/rainy/LQ
+  
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    ch_mult: [1, 2, 4, 8]
+    context_dim: 512
+    struct_context_dim: 256
+    use_degra_context: true
+    use_image_context: true
+    use_struct_context: true
+
+structure_prior:
+  which_model: StructurePriorModule
+  setting:
+    in_nc: 3
+    base_channels: 32
+    num_blocks: 8
+    token_dim: 256
+    image_size: 256
+    num_latent_tokens: 64
+
+#### path
+path:
+  pretrain_model_G: /pretrained/universal-ir.pth
+  tpgd: /pretrained/tpgd_ViT-B-32.pt  
