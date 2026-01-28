@@ -121,21 +121,21 @@ python test.py -opt=options/test.yml
 <summary><strong>Single-task restoration</strong></summary>
 <br>
 <p align="center">
-  <img src="figs/single-task.png" width="700">
+  <img src="figs/single-result.png" width="700">
 </p>
 </details>
 <details>
 <summary><strong>Multi-degradation (5D) restoration</strong></summary>
 <br>
 <p align="center">
-  <img src="figs/5d-task.png" width="700">
+  <img src="figs/5d-result.png" width="700">
 </p>
 </details>
 <details>
 <summary><strong>Unknown degradation setting</strong></summary>
 <br>
 <p align="center">
-  <img src="figs/unknow.png" width="700">
+  <img src="figs/unknow-result.png" width="700">
 </p>
 </details>
 
