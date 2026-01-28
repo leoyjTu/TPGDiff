@@ -4,7 +4,7 @@
 
 
 ## 🔥 Update Log
-- [2026/01] 📢 📢 [TPGDiff] code are released.
+- [2026/01/28] 📢 📢 This repo is released.
 
 
 ## 📖 Method Overview
