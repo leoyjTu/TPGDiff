@@ -97,7 +97,7 @@ Notes:
 
 ### Testing 📜
 
-After training, run evaluation or inference with the test configuration:
+After training, run test with the test configuration:
 
 ```bash
 python test.py -opt=options/test.yml
@@ -157,12 +157,11 @@ This project is based on [DA-CLIP](https://github.com/Algolzw/daclip-uir), [IR-S
 If this code contributes to your research, please cite our work:
 
 ```bibtex
-@article{TPGDiff,
-  title   = {TPGDiff: Hierarchical Triple-Prior Guided Diffusion for Image Restoration},
-  author  = {Yanjie Tu, Qingsen Yan, Axi Niu, Jiacong Tang},
-  journal = {Under Review},
-  year    = {2026},
-  note    = {Under review}
+@article{tu2026tpgdiff,
+  title={TPGDiff: Hierarchical Triple-Prior Guided Diffusion for Image Restoration},
+  author={Tu, Yanjie and Yan, Qingsen and Niu, Axi and Tang, Jiacong},
+  journal={arXiv preprint arXiv:2601.20306},
+  year={2026}
 }
 ```
 
