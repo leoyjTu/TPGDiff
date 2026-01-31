@@ -2,6 +2,14 @@
 
 ---
 
+> [Yanjie Tu](https://github.com/leoyjTu)<sup>12</sup>, [Qingsen Yan](https://scholar.google.com/citations?hl=zh-CN&user=BSGy3foAAAAJ&view_op=list_works&sortby=pubdate)<sup>12*</sup>, [Axi Niu](https://scholar.google.com/citations?user=5apnc_UAAAAJ&hl=en&oi=ao)<sup>1</sup>, Jiacong Tang<sup>1</sup><br>
+> <sup>1</sup>Northwestern Polytechnical University<sup>2</sup>Shenzhen Research Institute of Northwestern Polytechnical University<sup>*</sup>Corresponding Author
+
+<p align="center">
+  <a href="https://leoyjtu.github.io/tpgdiff-project/">🌐Project Page</a> |
+  <a href="https://arxiv.org/abs/2601.20306">📜Arxiv</a> |
+</p>
+
 
 ## 🔥 Update Log
 - [2026/01/28] 📢 📢 This repo is released.
